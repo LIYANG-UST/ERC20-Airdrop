@@ -31,7 +31,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Introducing {tokenName}{" "}
+            Check the address list{" "}
             <Image src="/icons/arrow.svg" alt="Arrow" height={12} width={12} />
           </a>
         ) : null}

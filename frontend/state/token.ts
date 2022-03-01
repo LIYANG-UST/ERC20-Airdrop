@@ -79,6 +79,7 @@ function useToken() {
     // If address is in airdrop
     if (address in config.airdrop) {
       // Return number of tokens available
+      console.log("amount", config.airdrop[address]);
       return config.airdrop[address];
     }
 
@@ -95,6 +96,7 @@ function useToken() {
     // Collect token contract
     const token: ethers.Contract = getContract();
     // Return claimed status
+    console.log("token address: ", token.address);
     return await token.hasClaimed(address);
   };
 
@@ -115,8 +117,10 @@ function useToken() {
 
     // Generate hashed leaf from address
     const leaf: Buffer = generateLeaf(formattedAddress, numTokens);
+    console.log("leaf: ", leaf);
     // Generate airdrop proof
     const proof: string[] = merkleTree.getHexProof(leaf);
+    console.log("proof: ", proof);
 
     // Try to claim airdrop and refresh sync status
     try {
